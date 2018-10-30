@@ -1,0 +1,11 @@
+set search_path=dat108oblig3;
+
+CREATE TABLE Bruker
+(
+  fornavn VARCHAR,
+  etternavn VARCHAR,
+  mobil VARCHAR PRIMARY KEY,
+  passordhash VARCHAR,
+  passordsalt VARCHAR,
+  kjonn VARCHAR
+);

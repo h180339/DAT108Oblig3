@@ -17,6 +17,8 @@
         <setting name="provider-name" value="" />
         <datasource-mapping>
           <factory-entry name="DeltakerPU" />
+          <factory-entry name="Entities" />
+          <factory-entry name="deltager" />
         </datasource-mapping>
         <deploymentDescriptor name="persistence.xml" url="file://$MODULE_DIR$/src/META-INF/persistence.xml" />
       </configuration>
@@ -61,7 +63,7 @@
     <orderEntry type="module-library">
       <library>
         <CLASSES>
-          <root url="jar://$USER_HOME$/Desktop/apache-tomee-webprofile-7.1.0/lib/eclipselink-2.7.1.jar!/" />
+          <root url="jar://$MODULE_DIR$/../../apache-tomee-webprofile-7.1.0/lib/eclipselink-2.7.1.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />

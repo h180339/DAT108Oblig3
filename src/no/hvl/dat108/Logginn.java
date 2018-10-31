@@ -10,6 +10,8 @@ import java.io.IOException;
 @WebServlet(name = "Logginn", urlPatterns = "/logginn")
 public class Logginn extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+      
+
        response.sendRedirect("/deltagerliste");
     }
 

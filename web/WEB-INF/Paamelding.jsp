@@ -10,7 +10,7 @@
 </head>
 <body>
 <h2>Påmelding</h2>
-<form method="post" class="pure-form pure-form-aligned">
+<form method="post" class="pure-form pure-form-aligned" action="paamelding">
     <fieldset>
         <div class="pure-control-group">
             <label for="fornavn">Fornavn:</label> <input type="text"

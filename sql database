@@ -1,6 +1,6 @@
 set search_path=dat108oblig3;
 
-CREATE TABLE Bruker
+CREATE TABLE "Bruker"
 (
   fornavn VARCHAR,
   etternavn VARCHAR,

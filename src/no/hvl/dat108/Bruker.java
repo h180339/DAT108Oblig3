@@ -1,13 +1,25 @@
 package no.hvl.dat108;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+import javax.servlet.http.HttpServletRequest;
+
+@Entity
+@Table(schema = "dat108oblig3", name = "bruker")
 public class Bruker {
     private String fornavn;
     private String etternavn;
+    @Id
     private String mobil;
     private String passwordHash;
-    private String passwordSalt;
     private String kjonn;
 
+    public Bruker(HttpServletRequest request) {
+        this.fornavn = request.getParameter("fornavn");
+        this.etternavn = request.getParameter("etternavn");
+        this.mobil = request.getParameter("mobil");
+        this.kjonn = request.getParameter("kjoenn");
     public String getFornavn() {
         return fornavn;
     }
@@ -38,14 +50,6 @@ public class Bruker {
 
     public void setPasswordHash(String passwordHash) {
         this.passwordHash = passwordHash;
-    }
-
-    public String getPasswordSalt() {
-        return passwordSalt;
-    }
-
-    public void setPasswordSalt(String passwordSalt) {
-        this.passwordSalt = passwordSalt;
     }
 
     public String getKjonn() {

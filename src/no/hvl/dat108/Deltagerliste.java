@@ -10,6 +10,7 @@ import java.io.IOException;
 @WebServlet(name = "Deltagerliste", urlPatterns = "/deltagerliste")
 public class Deltagerliste extends HttpServlet {
 
+
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
     }

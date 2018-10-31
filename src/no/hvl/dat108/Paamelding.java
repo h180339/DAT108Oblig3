@@ -6,6 +6,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
 
@@ -22,17 +23,25 @@ public class Paamelding extends HttpServlet {
         Bruker bruker = new Bruker(request);
 
         if(skjema.isAllInputGyldig()){
-
             brukerEAO.leggTilbruker(bruker);
-            request.getSession().removeAttribute("skjema");
+            HttpSession sesjon = request.getSession(false);
+            if(sesjon != null) {
+                sesjon.invalidate();
+            }
+            sesjon = request.getSession(true);
+            sesjon.setMaxInactiveInterval(50);
+
+            sesjon.setAttribute("fornavn", bruker.getFornavn());
+            sesjon.setAttribute("etternavn", bruker.getEtternavn());
+            sesjon.setAttribute("mobil", bruker.getMobil());
+            sesjon.setAttribute("kjonn", bruker.getKjonn());
+
             response.sendRedirect("/paameldingsBekreftelse");
         }else{
             skjema.settOppFeilmeldinger();
-
             request.getSession().setAttribute("skjema", skjema);
             response.sendRedirect("/paamelding");
         }
-
 
 
     }

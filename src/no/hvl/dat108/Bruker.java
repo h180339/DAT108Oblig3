@@ -6,7 +6,7 @@ import javax.persistence.Table;
 import javax.servlet.http.HttpServletRequest;
 
 @Entity
-@Table(schema = "oblig3", name = "bruker")
+@Table(schema = "dat108oblig3", name = "bruker")
 public class Bruker {
     private String fornavn;
     private String etternavn;
@@ -20,6 +20,7 @@ public class Bruker {
         this.etternavn = request.getParameter("etternavn");
         this.mobil = request.getParameter("mobil");
         this.kjonn = request.getParameter("kjoenn");
+        this.passordHash = PassordUtil.krypterPassord(request.getParameter("passord"));
         if(request.getParameter("mann") != null) {
             this.kjonn = "mann";
         }else if (request.getParameter("kvinne") != null) {

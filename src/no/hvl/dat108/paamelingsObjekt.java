@@ -1,4 +1,5 @@
 package no.hvl.dat108;
+
 import javax.servlet.http.HttpServletRequest;
 
 
@@ -33,46 +34,55 @@ public class paamelingsObjekt {
     }
 
     public void settOppFeilmeldinger() {
-        if(!isFornavnGyldig()) {
+        if (!isFornavnGyldig()) {
             fornavn = "";
             fornavnFeilmelding = "Ugyldig fornvan";
         }
-        if(!isEtternavnGyldig()) {
+        if (!isEtternavnGyldig()) {
             etternavn = "";
             etternavnFeilmelding = "Ugyldig etternavn";
         }
-        if(!isTlfGyldig()) {
+        if (!isTlfGyldig()) {
             mobil = "";
             tlfNrFeilmelding = "Ugyldig mobil";
         }
-        if(!isPassordGyldig()) {
+        if (!isPassordGyldig()) {
             passord = "";
             passordFeilmelding = "Ugyldig passord";
         }
-        if(!isRepeterPassordGyldig()) {
+        if (!isRepeterPassordGyldig()) {
             repetePassord = "";
             repetePassordFeilmelding = "Passordene må være like";
         }
-        if(!isKjonnGyldig()) {
+        if (!isKjonnGyldig()) {
             kjonnFeilmelding = "Du må oppgi mann";
         }
     }
 
-    public boolean isFornavnGyldig() {return fornavn.matches("^[A-ZØÆÅ][a-zøæåA-ZØÆÅ -]{1,20}");}
-
-    public boolean isEtternavnGyldig() {return etternavn.matches("^[A-ZØÆÅ][a-zøæåA-ZØÆÅ-]{1,20}");}
-
-    public boolean isTlfGyldig() {return  mobil.matches("\\d{8}");
+    public boolean isFornavnGyldig() {
+        return fornavn.matches("^[A-ZØÆÅ][a-zøæåA-ZØÆÅ -]{1,20}");
     }
+
+    public boolean isEtternavnGyldig() {
+        return etternavn.matches("^[A-ZØÆÅ][a-zøæåA-ZØÆÅ-]{1,20}");
+    }
+
+    public boolean isTlfGyldig() {
+        return mobil.matches("\\d{8}");
+    }
+
     public boolean isPassordGyldig() {
 
-        return passord == null ? false: passord.matches("^.{5,}$");
+        return passord == null ? false : passord.matches("^.{5,}$");
     }
+
     public boolean isRepeterPassordGyldig() {
 
-        return repetePassord == null || repetePassord.equals("") ? false: repetePassord.equals(passord);
+        return repetePassord == null || repetePassord.equals("") ? false : repetePassord.equals(passord);
     }
-    public boolean isKjonnGyldig() { return kvinne != null || mann != null;
+
+    public boolean isKjonnGyldig() {
+        return kvinne != null || mann != null;
     }
 
     public String getFornavn() {
@@ -126,7 +136,6 @@ public class paamelingsObjekt {
     public String getKjonnFeilmelding() {
         return kjonnFeilmelding;
     }
-
 
 
 }

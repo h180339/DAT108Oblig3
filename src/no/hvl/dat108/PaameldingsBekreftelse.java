@@ -11,9 +11,6 @@ import java.io.IOException;
 @WebServlet(name = "PaameldingsBekreftelse", urlPatterns = "/paameldingsBekreftelse")
 public class PaameldingsBekreftelse extends HttpServlet {
 
-    @EJB
-    private BrukerEAO brukerEAO;
-
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
     }

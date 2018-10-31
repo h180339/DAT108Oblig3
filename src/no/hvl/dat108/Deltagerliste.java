@@ -1,5 +1,6 @@
 package no.hvl.dat108;
 
+import javax.ejb.EJB;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -11,6 +12,9 @@ import java.util.List;
 @WebServlet(name = "Deltagerliste", urlPatterns = "/deltagerliste")
 public class Deltagerliste extends HttpServlet {
 
+    @EJB
+    private BrukerEAO brukerEAO;
+
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
@@ -18,8 +22,8 @@ public class Deltagerliste extends HttpServlet {
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        BrukerEAO eao = new BrukerEAO();
-        List<Bruker> brukere = eao.hentBrukere();
+        List<Bruker> brukere = brukerEAO.hentBrukere();
+
         request.setAttribute("brukere", brukere);
 
        request.getRequestDispatcher("WEB-INF/Deltagerliste.jsp").forward(request, response);

@@ -1,5 +1,5 @@
 
-set search_path = DAT108Oblig3;
+set search_path = dat108oblig3;
 
 CREATE TABLE bruker
 (

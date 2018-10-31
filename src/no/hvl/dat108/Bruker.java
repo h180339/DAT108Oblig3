@@ -6,13 +6,13 @@ import javax.persistence.Table;
 import javax.servlet.http.HttpServletRequest;
 
 @Entity
-@Table(schema = "dat108oblig3", name = "bruker")
+@Table(schema = "oblig3", name = "bruker")
 public class Bruker {
     private String fornavn;
     private String etternavn;
     @Id
     private String mobil;
-    private String passwordHash;
+    private String passordHash;
     private String kjonn;
 
     public Bruker(HttpServletRequest request) {
@@ -20,6 +20,16 @@ public class Bruker {
         this.etternavn = request.getParameter("etternavn");
         this.mobil = request.getParameter("mobil");
         this.kjonn = request.getParameter("kjoenn");
+        if(request.getParameter("mann") != null) {
+            this.kjonn = "mann";
+        }else if (request.getParameter("kvinne") != null) {
+            this.kjonn = "kvinne";
+        }
+
+    }
+    public Bruker() {
+    }
+
     public String getFornavn() {
         return fornavn;
     }
@@ -45,11 +55,11 @@ public class Bruker {
     }
 
     public String getPasswordHash() {
-        return passwordHash;
+        return passordHash;
     }
 
     public void setPasswordHash(String passwordHash) {
-        this.passwordHash = passwordHash;
+        this.passordHash = passwordHash;
     }
 
     public String getKjonn() {

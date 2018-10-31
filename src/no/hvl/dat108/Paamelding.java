@@ -11,20 +11,26 @@ import java.io.IOException;
 
 @WebServlet(name = "Paamelding", urlPatterns = "/paamelding")
 public class Paamelding extends HttpServlet {
+    private static final long serialVersionUID = 1L;
+
     @EJB
     private BrukerEAO brukerEAO;
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-        paamelingsObjekt paalogging = new paamelingsObjekt(request);
+        paamelingsObjekt skjema = new paamelingsObjekt(request);
+        Bruker bruker = new Bruker(request);
 
-        if(paalogging.isAllInputGyldig()){
-            Bruker p = new Bruker(request);
-            brukerEAO.leggTilbruker(p);
+        if(skjema.isAllInputGyldig()){
 
-           // response.sendRedirect("/paameldingsBekreftelse");
+            brukerEAO.leggTilbruker(bruker);
+            request.getSession().removeAttribute("skjema");
+            response.sendRedirect("/paameldingsBekreftelse");
         }else{
-            response.sendRedirect("paamelding");
+            skjema.settOppFeilmeldinger();
+
+            request.getSession().setAttribute("skjema", skjema);
+            response.sendRedirect("/paamelding");
         }
 
 

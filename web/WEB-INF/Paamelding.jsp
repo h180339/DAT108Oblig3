@@ -10,41 +10,34 @@
 </head>
 <body>
 <h2>Påmelding</h2>
-<form method="post" class="pure-form pure-form-aligned" action="paamelding">
+<form method="post" class="pure-form pure-form-aligned">
     <fieldset>
         <div class="pure-control-group">
-            <label for="fornavn">Fornavn:</label> <input type="text"
-                                                         name="fornavn" value="" />
-            <font color="red">Ugyldig fornavn</font>
+            <label for="fornavn">Fornavn:</label>
+            <input type="text" name="fornavn" value="${skjema.fornavn}"/>
+            <font color="red">${skjema.fornavnFeilmelding}</font><br>
         </div>
         <div class="pure-control-group">
-            <label for="etternavn">Etternavn:</label> <input type="text"
-                                                             name="etternavn" value="" />
-            <font color="red">Ugyldig etternavn</font>
+            <label for="etternavn">Etternavn:</label> <input type="text" name="etternavn" value="${skjema.etternavn}" />
+            <font color="red">${skjema.etternavnFeilmelding}</font>
         </div>
         <div class="pure-control-group">
-            <label for="mobil">Mobil (8 siffer):</label> <input type="text"
-                                                                name="mobil" value="" />
-            <font color="red">Ugyldig mobil</font>
+            <label for="mobil">Mobil (8 siffer):</label> <input type="text" name="mobil" value="${skjema.tlfNr}" />
+            <font color="red">${skjema.tlfNrFeilmelding}</font>
         </div>
         <div class="pure-control-group">
-            <label for="password">Passord:</label> <input type="password"
-                                                          name="passord" value="" />
-            <font color="red">Ugyldig passord</font>
+            <label for="password">Passord:</label> <input type="password" name="passord" value="${skjema.passord}" />
+            <font color="red">${skjema.passordFeilmelding}</font>
         </div>
         <div class="pure-control-group">
-            <label for="passordRepetert">Passord repetert:</label> <input
-                type="password" name="passordRepetert"
-                value="" />
-            <font color="red">Passordene må være like</font>
+            <label for="passordRepetert">Passord repetert:</label> <input type="password" name="passordRepetert" value="${skjema.repetePassord}" />
+            <font color="red">${skjema.repetePassordFeilmelding}</font>
         </div>
         <div class="pure-control-group">
-            <label for="kjonn">Kjønn:</label> <input type="radio" name="kjonn"
-                                                     value="mann"
-        />mann
-            <input type="radio" name="kjonn" value="kvinne"
-            />kvinne
-            <font color="red">Du må oppgi kjonn</font>
+            <label for="kjonn">Kjønn:</label>
+            <input type="radio" name="mann" value="${skjema.mann}"/>mann
+            <input type="radio" name="kvinne" value="${skjema.kvinne}"/>kvinne
+            <font color="red">${skjema.kjonnFeilmelding}</font>
         </div>
         <div class="pure-controls">
             <button type="submit" class="pure-button pure-button-primary">Meld

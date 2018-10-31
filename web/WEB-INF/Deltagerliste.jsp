@@ -7,6 +7,7 @@
     <!-- Fra https://purecss.io/ -->
     <link rel="stylesheet"
           href="https://unpkg.com/purecss@1.0.0/build/pure-min.css">
+    <link rel="stylesheet" href="style.css">
     <title>Deltagerliste</title>
 </head>
 <body>
@@ -18,11 +19,11 @@
         <th align="left">Mobil</th>
     </tr>
 
-    <c:forEach items="${brukere}" var="bruker">
-        <tr bgcolor="#aaffaa">
-            <td align="center">${bruker.kjonn}</td>
-            <td>${bruker.etternavn}, ${bruker.fornavn}</td>
-            <td>${bruker.mobil}</td>
+    <c:forEach items="${rows}" var="row">
+        <tr class="${row.classname}">
+            <td align="center">${row.bruker.kjonn}</td>
+            <td>${row.bruker.etternavn}, ${row.bruker.fornavn}</td>
+            <td>${row.bruker.mobil}</td>
         </tr>
     </c:forEach>
 </table>

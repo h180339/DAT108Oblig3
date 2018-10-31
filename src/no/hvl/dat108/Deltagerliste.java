@@ -6,7 +6,9 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 @WebServlet(name = "Deltagerliste", urlPatterns = "/deltagerliste")
@@ -22,10 +24,27 @@ public class Deltagerliste extends HttpServlet {
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        List<Bruker> brukere = brukerEAO.hentBrukere();
+        HttpSession session = request.getSession(false);
 
-        request.setAttribute("brukere", brukere);
+        if (session != null) {
+            Bruker bruker = (Bruker) session.getAttribute("bruker");
 
-       request.getRequestDispatcher("WEB-INF/Deltagerliste.jsp").forward(request, response);
+            if (bruker != null) {
+                List<DeltagerRowHelper> rows = new ArrayList<>();
+                List<Bruker> brukere = brukerEAO.hentBrukere();
+
+                for (Bruker b : brukere) {
+                    String cname = bruker.getMobil() == b.getMobil() ? "deltager_signed_in" : "deltager";
+                    rows.add(new DeltagerRowHelper(b, cname));
+                }
+
+                request.setAttribute("rows", rows);
+
+                request.getRequestDispatcher("WEB-INF/Deltagerliste.jsp").forward(request, response);
+            }else {
+                response.sendRedirect("/logginn");
+            }
+        }
+
     }
 }

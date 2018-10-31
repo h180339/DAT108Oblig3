@@ -30,7 +30,9 @@ public class Paamelding extends HttpServlet {
                 sesjon.invalidate();
             }
             sesjon = request.getSession(true);
-            sesjon.setMaxInactiveInterval(50);
+            sesjon.setMaxInactiveInterval(100000);
+
+            sesjon.setAttribute("bruker", bruker);
 
             sesjon.setAttribute("fornavn", bruker.getFornavn());
             sesjon.setAttribute("etternavn", bruker.getEtternavn());

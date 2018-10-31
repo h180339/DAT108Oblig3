@@ -3,6 +3,7 @@ package no.hvl.dat108;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import java.util.List;
 
 @Stateless
 public class BrukerEAO {
@@ -11,5 +12,9 @@ public class BrukerEAO {
 
     public void leggTilbruker(Bruker s) {
         em.persist(s);
+    }
+
+    public List<Bruker> hentBrukere() {
+        return em.createQuery("SELECT b FROM Brukere b").getResultList();
     }
 }

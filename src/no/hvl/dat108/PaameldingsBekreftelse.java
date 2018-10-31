@@ -1,5 +1,6 @@
 package no.hvl.dat108;
 
+import javax.ejb.EJB;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -9,6 +10,9 @@ import java.io.IOException;
 
 @WebServlet(name = "PaameldingsBekreftelse", urlPatterns = "/paameldingsBekreftelse")
 public class PaameldingsBekreftelse extends HttpServlet {
+
+    @EJB
+    private BrukerEAO brukerEAO;
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 

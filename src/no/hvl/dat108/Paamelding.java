@@ -20,9 +20,10 @@ public class Paamelding extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
         paamelingsObjekt skjema = new paamelingsObjekt(request);
-        Bruker bruker = new Bruker(request);
 
         if(skjema.isAllInputGyldig()){
+            Bruker bruker = new Bruker(request);
+
             brukerEAO.leggTilbruker(bruker);
             HttpSession sesjon = request.getSession(false);
             if(sesjon != null) {

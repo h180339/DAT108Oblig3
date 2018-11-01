@@ -41,9 +41,9 @@ public class Deltagerliste extends HttpServlet {
                 request.setAttribute("rows", rows);
 
                 request.getRequestDispatcher("WEB-INF/Deltagerliste.jsp").forward(request, response);
-            }else {
-                response.sendRedirect("/logginn");
+                return;
             }
+            response.sendRedirect("/logginn");
         }
 
     }

@@ -50,7 +50,6 @@ public class Paamelding extends HttpServlet {
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        request.getRequestDispatcher("WEB-INF/Paamelding.jsp")
-                .forward(request, response);
+        request.getRequestDispatcher("WEB-INF/Paamelding.jsp").forward(request, response);
     }
 }

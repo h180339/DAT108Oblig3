@@ -8,7 +8,7 @@ CREATE TABLE bruker
    mobil            VARCHAR (60) UNIQUE,
    passwordHash     VARCHAR (100),
    kjonn            VARCHAR (40),
-   PRIMARY KEY (mobil),
+   PRIMARY KEY (mobil)
 );
 
 

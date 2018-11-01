@@ -21,13 +21,13 @@ public class BrukerEAO {
     }
 
     public List<Bruker> hentBrukere() {
-        //TypedQuery<Bruker> query = em.createQuery("SELECT c FROM Bruker c", Bruker.class);
+        //TypedQuery<Bruker> query = em.createQuery("SELECT c FROM bruker c", Bruker.class);
         //String queryString = "select e from Bruker e";
         //TypedQuery<Bruker> query = em.createQuery(queryString, Bruker.class);
         //List<Bruker> results = query.getResultList();
-        //List al = em.createQuery("SELECT fornavn FROM dat108oblig3.brukere").getResultList();
+        //List al = em.createQuery("SELECT fornavn FROM dat108oblig3.bruker").getResultList();
         //return results;
 
-        return em.createQuery("SELECT b FROM Bruker b").getResultList();
+        return em.createQuery("SELECT s FROM Bruker s").getResultList();
     }
 }

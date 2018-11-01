@@ -36,7 +36,7 @@
     <orderEntry type="module-library">
       <library>
         <CLASSES>
-          <root url="jar://$USER_HOME$/Downloads/javaee-api-6.0.jar!/" />
+          <root url="jar://$USER_HOME$/Downloads/eclipselink-2.7.1.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />
@@ -45,30 +45,11 @@
     <orderEntry type="module-library">
       <library>
         <CLASSES>
-          <root url="jar://$USER_HOME$/Downloads/javax.persistence-2.2.1.jar!/" />
+          <root url="jar://$USER_HOME$/Downloads/tomcatIntegration.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />
       </library>
     </orderEntry>
-    <orderEntry type="module-library">
-      <library>
-        <CLASSES>
-          <root url="jar://$USER_HOME$/Downloads/postgresql-42.2.5.jar!/" />
-        </CLASSES>
-        <JAVADOC />
-        <SOURCES />
-      </library>
-    </orderEntry>
-    <orderEntry type="module-library">
-      <library>
-        <CLASSES>
-          <root url="jar://$MODULE_DIR$/../../apache-tomee-webprofile-7.1.0/lib/eclipselink-2.7.1.jar!/" />
-        </CLASSES>
-        <JAVADOC />
-        <SOURCES />
-      </library>
-    </orderEntry>
-    <orderEntry type="library" name="Java EE 6-Java EE 6" level="project" />
   </component>
 </module>
